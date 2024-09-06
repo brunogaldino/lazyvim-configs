@@ -15,14 +15,14 @@ return {
     end,
   },
 
-  {
-    "stevearc/oil.nvim",
-    opts = {},
-    lazy = true,
-    cmd = { "Oil" },
-    -- Optional dependencies
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-  },
+  -- {
+  --   "stevearc/oil.nvim",
+  --   opts = {},
+  --   lazy = true,
+  --   cmd = { "Oil" },
+  --   -- Optional dependencies
+  --   dependencies = { "nvim-tree/nvim-web-devicons" },
+  -- },
 
   {
     "kevinhwang91/nvim-ufo",

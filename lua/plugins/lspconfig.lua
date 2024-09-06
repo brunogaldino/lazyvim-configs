@@ -1,13 +1,23 @@
 return {
-  "neovim/nvim-lspconfig",
-  opts = {
-    server = {
-      tsserver = {
-        init_options = {
-          preferences = {
-            importModuleSpecifierPreference = "relative",
-            importModuleSpecificEnding = "minimal",
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        vtsls = {
+          settings = {
+            typescript = {
+              preferences = {
+                importModuleSpecifier = "relative",
+                importModuleSpecifierEnding = "minimal",
+              },
+            },
           },
+          -- init_options = {
+          --   preferences = {
+          --     importModuleSpecifierPreference = "relative",
+          --     importModuleSpecifierEnding = "minimal",
+          --   },
+          -- },
         },
       },
     },

@@ -16,7 +16,7 @@ keymap("n", "<C-,>", vim.diagnostic.goto_next, { silent = true, desc = "Jump to 
 keymap("n", "<C-.>", "<cmd> lua vim.lsp.buf.code_action()<CR>", opts)
 
 -- OIl
-keymap("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
+-- keymap("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
 
 -- Comment.nvim
 keymap("n", "<C-/>", function()
@@ -29,7 +29,7 @@ keymap("n", "<C-;>", function()
   Util.terminal(nil, { cwd = Util.root() })
 end, opts)
 keymap("t", "<C-;>", "<cmd>close<cr>", { desc = "Hide Terminal" })
-keymap("t", "<C-l>", "<nop>", { desc = "Hide Terminal" })
+keymap("t", "<C-l>", "clear<cr>", { desc = "Hide Terminal" })
 
 -- RestNvim
 keymap(
@@ -45,3 +45,28 @@ keymap(
   { silent = true, desc = "Preview request with cuRL command" }
 )
 keymap("n", "<leader>chl", ":lua require('rest-nvim').last()<CR>", { silent = true, desc = "Re-run last request" })
+
+-- DAP
+keymap("n", "<F5>", function()
+  require("dap").continue()
+end, { desc = "Continue" })
+
+keymap("n", "<F6>", function()
+  require("dap").terminate()
+end, { desc = "Terminate" })
+
+keymap("n", "<F9>", function()
+  require("dap").toggle_breakpoint()
+end, { desc = "Toggle Breakpoint" })
+
+keymap("n", "<F10>", function()
+  require("dap").step_over()
+end, { desc = "Step Over" })
+
+keymap("n", "<F11>", function()
+  require("dap").step_into()
+end, { desc = "Steo Into" })
+
+keymap("n", "<F12>", function()
+  require("dap").step_out()
+end, { desc = "Step Out" })
