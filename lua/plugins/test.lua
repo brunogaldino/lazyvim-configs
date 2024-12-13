@@ -31,7 +31,7 @@ return {
         require("neotest-jest")({
           jestCommand = "pnpm test --",
           jestConfigFile = "custom.jest.config.ts",
-          env = { CI = true, NODE_ENV = "test" },
+          env = { NODE_ENV = "test" },
           cwd = function()
             return vim.fn.getcwd()
           end,

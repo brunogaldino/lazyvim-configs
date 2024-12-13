@@ -15,14 +15,7 @@ return {
     end,
   },
 
-  -- {
-  --   "stevearc/oil.nvim",
-  --   opts = {},
-  --   lazy = true,
-  --   cmd = { "Oil" },
-  --   -- Optional dependencies
-  --   dependencies = { "nvim-tree/nvim-web-devicons" },
-  -- },
+  { "akinsho/toggleterm.nvim", version = "*", config = true },
 
   {
     "kevinhwang91/nvim-ufo",
@@ -57,4 +50,16 @@ return {
       })
     end,
   },
+
+  {
+    "karb94/neoscroll.nvim",
+    config = function()
+      require("neoscroll").setup({})
+    end,
+  },
+
+  -- {
+  --   "tzachar/highlight-undo.nvim",
+  --   keys = { { "u" }, { "<C-r>" } },
+  -- },
 }

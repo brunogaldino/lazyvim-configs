@@ -26,11 +26,19 @@ keymap("v", "<C-/>", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.f
 
 -- Terminal
 keymap("n", "<C-;>", function()
-  Util.terminal(nil, { cwd = Util.root() })
-end, opts)
+  Snacks.terminal()
+end, { desc = "Terminal (cwd)" })
 keymap("t", "<C-;>", "<cmd>close<cr>", { desc = "Hide Terminal" })
-keymap("t", "<C-l>", "clear<cr>", { desc = "Hide Terminal" })
+keymap("t", "<C-l>", "clear<cr>", { desc = "Clear Terminal" })
 
+--ToggleTerm
+-- keymap("n", "<C-;>", function()
+--   local count = vim.v.count1
+--   require("toggleterm").toggle(count, 0, LazyVim.root.get(), "float")
+-- end, { desc = "ToggleTerm (float root_dir)" })
+--
+-- keymap("t", "<C-l>", "<cmd>TermExec cmd=' clear'<cr>", { desc = "Hide Terminal" })
+--
 -- RestNvim
 keymap(
   "n",
@@ -47,26 +55,26 @@ keymap(
 keymap("n", "<leader>chl", ":lua require('rest-nvim').last()<CR>", { silent = true, desc = "Re-run last request" })
 
 -- DAP
-keymap("n", "<F5>", function()
-  require("dap").continue()
-end, { desc = "Continue" })
-
-keymap("n", "<F6>", function()
-  require("dap").terminate()
-end, { desc = "Terminate" })
-
-keymap("n", "<F9>", function()
-  require("dap").toggle_breakpoint()
-end, { desc = "Toggle Breakpoint" })
-
-keymap("n", "<F10>", function()
-  require("dap").step_over()
-end, { desc = "Step Over" })
-
-keymap("n", "<F11>", function()
-  require("dap").step_into()
-end, { desc = "Steo Into" })
-
-keymap("n", "<F12>", function()
-  require("dap").step_out()
-end, { desc = "Step Out" })
+-- keymap("n", "<F5>", function()
+--   require("dap").continue()
+-- end, { desc = "Continue" })
+--
+-- keymap("n", "<F6>", function()
+--   require("dap").terminate()
+-- end, { desc = "Terminate" })
+--
+-- keymap("n", "<F9>", function()
+--   require("dap").toggle_breakpoint()
+-- end, { desc = "Toggle Breakpoint" })
+--
+-- keymap("n", "<F10>", function()
+--   require("dap").step_over()
+-- end, { desc = "Step Over" })
+--
+-- keymap("n", "<F11>", function()
+--   require("dap").step_into()
+-- end, { desc = "Steo Into" })
+--
+-- keymap("n", "<F12>", function()
+--   require("dap").step_out()
+-- end, { desc = "Step Out" })
