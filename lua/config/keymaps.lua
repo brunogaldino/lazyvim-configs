@@ -6,6 +6,8 @@ local Util = require("lazyvim.util")
 local keymap = vim.keymap.set
 local opts = { silent = true }
 
+keymap("c", "<Esc>", "<C-c>") -- Avoid executing commands when pressing esc
+
 -- General
 keymap("n", "<leader>bc", "<cmd>BufferLinePickClose<CR>", { silent = true, desc = "Delete specific buffer" })
 keymap("n", "<ScrollWheelLeft>", "<nop>", opts)

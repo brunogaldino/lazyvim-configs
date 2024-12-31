@@ -49,8 +49,6 @@ return {
       end
     end
 
-    -- local js_filetypes = { "typescript", "javascript", "typescriptreact", "javascriptreact" }
-
     local vscode = require("dap.ext.vscode")
     vscode.type_to_filetypes["node"] = js_based_languages
     vscode.type_to_filetypes["pwa-node"] = js_based_languages
@@ -78,6 +76,22 @@ return {
           cwd = vim.fn.getcwd(),
           runtimeExecutable = "pnpm", -- Specify npm as the runtime executable
           args = { "run", "start:debug" }, -- Pass the run command and script name as arguments
+          sourceMaps = true,
+          protocol = "inspector",
+          console = "integratedTerminal",
+          outFiles = { "${workspaceFolder}/dist/**/*.js" },
+          skipFiles = {
+            "${workspaceFolder}/node_modules/**/*.js",
+            "<node_internals>/**",
+          },
+        },
+        {
+          name = "Launch NestJS with dotenvx (Debug Mode)",
+          type = "pwa-node",
+          request = "launch",
+          cwd = vim.fn.getcwd(),
+          runtimeExecutable = "dotenvx", -- Specify npm as the runtime executable
+          args = { "run", "--", "pnpm", "run", "start:debug" }, -- Pass the run command and script name as arguments
           sourceMaps = true,
           protocol = "inspector",
           console = "integratedTerminal",
