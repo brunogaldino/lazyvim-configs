@@ -28,7 +28,7 @@ keymap("v", "<C-/>", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.f
 
 -- Terminal
 keymap("n", "<C-;>", function()
-  Snacks.terminal()
+  Snacks.terminal.toggle()
 end, { desc = "Terminal (cwd)" })
 keymap("t", "<C-;>", "<cmd>close<cr>", { desc = "Hide Terminal" })
 keymap("t", "<C-l>", "clear<cr>", { desc = "Clear Terminal" })

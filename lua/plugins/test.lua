@@ -29,7 +29,7 @@ return {
       table.insert(
         opts.adapters,
         require("neotest-jest")({
-          jestCommand = "pnpm test --",
+          jestCommand = "pnpm test",
           jestConfigFile = "custom.jest.config.ts",
           env = { NODE_ENV = "test" },
           cwd = function()
