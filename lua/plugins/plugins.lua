@@ -16,9 +16,16 @@ return {
   },
 
   -- {
-  --   "karb94/neoscroll.nvim",
+  --   "stevearc/oil.nvim",
+  --   opts = {},
+  --   lazy = false,
+  --   dependencies = { { "echasnovski/mini.icons", opts = {} } },
   --   config = function()
-  --     require("neoscroll").setup({})
+  --     require("oil").setup({
+  --       view_options = {
+  --         show_hidden = true,
+  --       },
+  --     })
   --   end,
   -- },
 
