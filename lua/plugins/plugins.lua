@@ -28,16 +28,4 @@ return {
   --     })
   --   end,
   -- },
-
-  {
-    "echasnovski/mini.animate",
-    event = "VeryLazy",
-    cond = vim.g.neovide == nil,
-    config = function()
-      require("mini.animate").setup({
-        open = { enable = false },
-        close = { enable = false },
-      })
-    end,
-  },
 }
