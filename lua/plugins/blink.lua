@@ -2,6 +2,11 @@ return {
   "saghen/blink.cmp",
   dependencies = { "onsails/lspkind.nvim" },
   opts = {
+    fuzzy = { implementation = "prefer_rust_with_warning" },
+    appearance = {
+      use_nvim_cmp_as_default = false,
+      nerd_font_variant = "mono",
+    },
     completion = {
       menu = {
         winhighlight = "Normal:None,FloatBorder:None,CursorLine:CursorLine,Search:None",
@@ -42,10 +47,24 @@ return {
         },
       },
     },
-    appearance = {
-      use_nvim_cmp_as_default = false,
-      nerd_font_variant = "mono",
-    },
-    fuzzy = { implementation = "prefer_rust_with_warning" },
+    -- sources = {
+    --   default = { "lsp", "path", "snippets", "buffer" },
+    --   providers = {
+    --     lsp = {
+    --       min_keyword_length = 2, -- Number of characters to trigger porvider
+    --       score_offset = 0, -- Boost/penalize the score of the items
+    --     },
+    --     path = {
+    --       min_keyword_length = 0,
+    --     },
+    --     snippets = {
+    --       min_keyword_length = 2,
+    --     },
+    --     buffer = {
+    --       min_keyword_length = 5,
+    --       max_items = 5,
+    --     },
+    --   },
+    -- },
   },
 }
