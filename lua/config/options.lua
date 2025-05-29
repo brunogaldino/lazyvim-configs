@@ -50,14 +50,27 @@ vim.opt.fillchars = { eob = " " } -- change the character at the end of buffer
 
 -- vim.o.statuscolumn = '%s %l %{v:lnum<line(".")?"-":""}%r'
 -- vim.o.statuscolumn='%s %#Visual#%l%1* %{v:lnum<line(".")?"-":""}%r'
--- vim.o.foldcolumn = "1" -- '0' is not bad
--- vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
--- vim.o.foldlevelstart = 99
--- vim.o.foldenable = true
 
--- vim.opt_local.expandtab = true
--- vim.opt_local.autoindent = true
--- vim.opt_local.smarttab = true
+-- Nice and simple folding:
+vim.o.foldenable = true
+vim.o.foldlevel = 99
+vim.o.foldmethod = "expr"
+vim.o.foldtext = ""
+vim.opt.foldcolumn = "0"
+vim.opt.fillchars:append({ fold = " " })
+
+-- Default to treesitter folding
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+-- Prefer LSP folding if client supports it
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client:supports_method("textDocument/foldingRange") then
+      local win = vim.api.nvim_get_current_win()
+      vim.wo[win][0].foldexpr = "v:lua.vim.lsp.foldexpr()"
+    end
+  end,
+})
 
 -- If using transparent backgroud
 -- vim.opt.pumblend = 0
