@@ -2,6 +2,10 @@ return {
   "saghen/blink.cmp",
   dependencies = { "onsails/lspkind.nvim" },
   opts = {
+    keymap = {
+      ["<c-x>"] = { "show_signature", "hide_signature", "fallback" },
+    },
+
     fuzzy = { implementation = "prefer_rust_with_warning" },
     appearance = {
       use_nvim_cmp_as_default = false,
