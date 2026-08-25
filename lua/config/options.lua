@@ -45,3 +45,4 @@ vim.opt.relativenumber = false -- set relative numbered lines
 -- vim.opt.title = true -- set the title of window to the value of the titlestring
 -- vim.opt.confirm = true -- confirm to save changes before exiting modified buffer
 vim.g.lazyvim_prettier_needs_config = true
+vim.g.root_spec = { "cwd" }
